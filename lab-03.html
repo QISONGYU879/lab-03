@@ -376,13 +376,41 @@ below:</strong></p>
 numeric, which are categorical/text/factor?<br />
 Are there missing values?</p>
 <pre class="r"><code># explore the types of the columns in jan_feb_flights</code></pre>
+<p>glimpse（jan_feb_flights)</p>
 <pre class="r"><code># which columns are integer
+jan_feb_flights %&gt;%
+  map_lgl(~is.integer(.x))</code></pre>
+<pre><code>##           year          month            day       dep_time sched_dep_time 
+##           TRUE           TRUE           TRUE           TRUE           TRUE 
+##      dep_delay       arr_time sched_arr_time      arr_delay        carrier 
+##          FALSE           TRUE           TRUE          FALSE          FALSE 
+##         flight        tailnum         origin           dest       air_time 
+##           TRUE          FALSE          FALSE          FALSE          FALSE 
+##       distance           hour         minute      time_hour 
+##          FALSE          FALSE          FALSE          FALSE</code></pre>
+<pre class="r"><code># which columns are double
 
-
-# which columns are double
-
-
-# which columns are character</code></pre>
+jan_feb_flights %&gt;%
+  map_lgl(~is.double(.x))</code></pre>
+<pre><code>##           year          month            day       dep_time sched_dep_time 
+##          FALSE          FALSE          FALSE          FALSE          FALSE 
+##      dep_delay       arr_time sched_arr_time      arr_delay        carrier 
+##           TRUE          FALSE          FALSE           TRUE          FALSE 
+##         flight        tailnum         origin           dest       air_time 
+##          FALSE          FALSE          FALSE          FALSE           TRUE 
+##       distance           hour         minute      time_hour 
+##           TRUE           TRUE           TRUE           TRUE</code></pre>
+<pre class="r"><code># which columns are character
+jan_feb_flights %&gt;%
+  map_lgl(~is.character(.x))</code></pre>
+<pre><code>##           year          month            day       dep_time sched_dep_time 
+##          FALSE          FALSE          FALSE          FALSE          FALSE 
+##      dep_delay       arr_time sched_arr_time      arr_delay        carrier 
+##          FALSE          FALSE          FALSE          FALSE           TRUE 
+##         flight        tailnum         origin           dest       air_time 
+##          FALSE           TRUE           TRUE           TRUE          FALSE 
+##       distance           hour         minute      time_hour 
+##          FALSE          FALSE          FALSE          FALSE</code></pre>
 <pre class="r"><code># which columns contain NA&#39;s</code></pre>
 <p><strong>Summary:</strong></p>
 <p><em>Use this space to summarize what you attempted, either from your
