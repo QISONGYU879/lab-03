@@ -36,14 +36,17 @@ Are there missing values?
 # explore the types of the columns in jan_feb_flights
 
 ```
+glimpse（jan_feb_flights)
 
 ```{r}
 # which columns are integer
-
+jan_feb_flights %>%
+  map_lgl(~is.integer(.x))
 
 # which columns are double
 
-
+jan_feb_flights %>%
+  map_lgl(~is.double(x))
 # which columns are character
 
 
