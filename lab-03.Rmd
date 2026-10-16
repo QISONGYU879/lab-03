@@ -55,7 +55,8 @@ jan_feb_flights %>%
 
 ```{r}
 # which columns contain NA's
-
+jan_feb_flights %>%
+  summarise(across(everything(), ~sum(is.na(.x))))
 ```
 
 **Summary:**  
