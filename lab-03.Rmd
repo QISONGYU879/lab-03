@@ -46,9 +46,10 @@ jan_feb_flights %>%
 # which columns are double
 
 jan_feb_flights %>%
-  map_lgl(~is.double(x))
+  map_lgl(~is.double(.x))
 # which columns are character
-
+jan_feb_flights %>%
+  map_lgl(~is.character(.x))
 
 ```
 
